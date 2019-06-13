@@ -34,7 +34,7 @@ public class Customer {
 		/*
 		 * This method calculates totalamount of movies rent and frequentRenterPoints
 		 * @param: nothing
-		 * @return: result which contain the name of Customer,each movie and their bill,total amount,and renterPints
+		 * @return: result which contain the name of Customers,each movie and their bill,total amount,and renterPints
 		 */
 		public String statement() {
 		double totalAmount = 0;
@@ -64,7 +64,13 @@ public class Customer {
 		return result;
 	}
 		
-		
+		/*
+		 * This method will insert all data of customer and movies into result.
+		 * @param: totalamount which contain totalAmount of movies.
+		 * 			frequentRenterPoint which contain bonus points for customers.
+		 * 			result which contain data about previous customer.
+		 * @return: result contain data about customers,movies,rents and frequentRenterPoint
+		 */
 		private String display(double totalAmount, int frequentRenterPoints, String result) {
 			result += "Amount owed is " + String.valueOf(totalAmount) +
 					"\n";

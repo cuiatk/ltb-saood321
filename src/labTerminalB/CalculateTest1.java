@@ -11,7 +11,7 @@ public class CalculateTest1 {
 		Movie m1 = new Movie("AliBaba", 0);
 		Movie m2 = new Movie("NeedForSpeed", 1);
 		Customer me = new Customer("Saood");
-		Customer me2 = new Customer("ahsan");
+		Customer me2 = new Customer("ayaz");
 		Rental r1 = new Rental(m1, 20);
 		Rental r2 = new Rental(m2,20);
 		
