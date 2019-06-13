@@ -30,30 +30,23 @@ public class Customer {
 		 * TODO 3		10 Marks
 		 * Provide suitable specification for statement method 
 		 */
+		
+		/*
+		 * This method calculates totalamount of movies rent and frequentRenterPoints
+		 * @param: nothing
+		 * @return: result which contain the name of Customer,each movie and their bill,total amount,and renterPints
+		 */
 		public String statement() {
 		double totalAmount = 0;
 		int frequentRenterPoints = 0;
 		Enumeration<Rental> rentals = _rentals.elements();
 		String result = "Rental Record for " + getName() + "\n";
+		
 		while (rentals.hasMoreElements()) {
 			double thisAmount = 0;
 			Rental each = (Rental) rentals.nextElement();
 			//determine amounts for each line
-			switch (each.getMovie().getPriceCode()) {
-			case Movie.REGULAR:
-				thisAmount += 2;
-				if (each.getDaysRented() > 2)
-					thisAmount += (each.getDaysRented() - 2) * 1.5;
-				break;
-			case Movie.NEW_RELEASE:
-				thisAmount += each.getDaysRented() * 3;
-				break;
-			case Movie.CHILDRENS:
-				thisAmount += 1.5;
-				if (each.getDaysRented() > 3)
-					thisAmount += (each.getDaysRented() - 3) * 1.5;
-				break;
-			}
+			thisAmount = each.rentCalculation(thisAmount);
 			// add frequent renter points
 			frequentRenterPoints ++;
 			// add bonus for a two day new release rental
@@ -66,11 +59,18 @@ public class Customer {
 			totalAmount += thisAmount;
 		}
 		//add footer lines
-		result += "Amount owed is " + String.valueOf(totalAmount) +
-				"\n";
-		result += "You earned " + String.valueOf(frequentRenterPoints)
-		+
-		" frequent renter points";
+		result = display(totalAmount, frequentRenterPoints, result);
+		
 		return result;
 	}
+		
+		
+		private String display(double totalAmount, int frequentRenterPoints, String result) {
+			result += "Amount owed is " + String.valueOf(totalAmount) +
+					"\n";
+			result += "You earned " + String.valueOf(frequentRenterPoints)
+			+
+			" frequent renter points";
+			return result;
+		}
 }
