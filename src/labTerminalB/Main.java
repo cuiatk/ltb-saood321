@@ -7,8 +7,8 @@ public class Main {
 		Movie m2 = new Movie("Undesputed", 1);
 		Customer me = new Customer("Ali");
 		Customer me2 = new Customer("kamran");
-		Rental r1 = new Rental(m1, 10);
-		Rental r2 = new Rental(m2,10);
+		Rental r1 = new Rental(m1, 2);
+		Rental r2 = new Rental(m2,3);
 		
 		/**
 		 * Test 1 Customer rented two movies one REGULAR and one NEW_RELEASE
